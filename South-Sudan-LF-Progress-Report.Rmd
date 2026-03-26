@@ -1,0 +1,44 @@
+---
+title: "South Sudan Lymphatic Filariasis Progress Report 2014-2024"
+author: "Emalee Martin"
+date: "`r Sys.Date()`"
+output: html_document
+---
+```{r, setup, echo = FALSE, warning = FALSE, message = FALSE }
+library(dplyr)
+library(knitr)
+opts_chunk$set(
+  echo = FALSE, warning = FALSE, message = FALSE
+)
+```
+
+```{r, here-i-am, include = FALSE}
+here::i_am(
+  "South-Sudan-LF-Progress-Report.Rmd"
+)
+```
+
+```{r, load-data}
+clean_data <- readRDS(here::here("output/clean_data.rds"))
+```
+## Introduction
+The purpose of this report is to summarize South Sudan's progress toward eliminating Lymphatic Filariasis (LF). Data were obtained from the ESPEN portal (https://espen.afro.who.int/maps-data/countries/south-sudan#lf--data), which is updated annually by the World Health Organization.
+
+This report focuses on visualizing elimination progress over time. Sudan is composed of `r n_distinct(clean_data$iuCode)` Implementation Units (IUs). The table below summarizes the endemicity status of all IUs from 2014 to 2024.
+
+```{r, table}
+table <-readRDS(
+  file = here::here("output/table.rds")
+)
+table
+```
+
+The following bar chart illustrates elimination progress among South Sudan's LF endemic IUs.
+
+```{r, graph}
+graph <-readRDS(
+  file = here::here("output/graph.rds")
+)
+graph
+```
+
