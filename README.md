@@ -14,4 +14,4 @@ The South Sudan LF Progress Report components:
 `Makefile` contains rules for building the report
 
 This file uses renv to manage R packages dependencies. After cloning the repo,
-restore all required pages from the lockfile using renv::re 
+restore all required pages from the lockfile using renv::restore() 
