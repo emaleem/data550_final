@@ -12,3 +12,6 @@ The South Sudan LF Progress Report components:
 `South-Sudan-LF-Progress-Report.Rmd` reads in outputs from `output/` and creates the report
 
 `Makefile` contains rules for building the report
+
+This file uses renv to manage R packages dependencies. After cloning the repo,
+restore all required pages from the lockfile using renv::re 

@@ -13,3 +13,7 @@ graph: code/03_make_graph.R output/clean_data.rds
 .PHONY: clean
 clean:
 	rm -f output/*.rds && rm -f South-Sudan-LF-Progress-Report.html
+	
+.PHONY: install
+install:
+	Rscript -e "renv::restore(prompt = FALSE)"
