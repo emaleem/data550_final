@@ -5,12 +5,12 @@
 
 ## rule to build image
 report_image: 
-	docker build -t report_image .
+	docker build -t emaleem/final .
 	touch $@
 	
 ##rule to build the report automatically in container
-report/South-Sudan-LF-Progress-Report.html: report_image
-	docker run -v "/$$(pwd)/report":/report/report report_image
+report/South-Sudan-LF-Progress-Report.html:
+	docker run -v "/$$(pwd)/report":/report/report emaleem/final
 
 ## REPORT ASSOCIATED RULES ##
 South-Sudan-LF-Progress-Report.html: South-Sudan-LF-Progress-Report.Rmd code/04_render_report.R clean_data table graph
@@ -27,7 +27,7 @@ graph: code/03_make_graph.R output/clean_data.rds
 
 .PHONY: clean
 clean:
-	rm -f output/*.rds && rm -f South-Sudan-LF-Progress-Report.html $$ rm -f report/South-Sudan-LF-Progress-Report.html
+	rm -f output/*.rds && rm -f South-Sudan-LF-Progress-Report.html && rm -f report/South-Sudan-LF-Progress-Report.html
 	
 test:
 	Rscript -e ".libPaths()"
