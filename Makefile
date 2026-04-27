@@ -9,6 +9,9 @@ report_image:
 	touch $@
 	
 ##rule to build the report automatically in container
+build_report:
+	docker run -v "/$$(pwd)/report":/report/report emaleem/final
+
 report/South-Sudan-LF-Progress-Report.html:
 	docker run -v "/$$(pwd)/report":/report/report emaleem/final
 

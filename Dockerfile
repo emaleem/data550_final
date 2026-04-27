@@ -23,4 +23,4 @@ RUN Rscript -e "renv::restore(prompt = FALSE)"
 
 RUN mkdir report
 
-CMD make && mv South-Sudan-LF-Progress-Report.html report
+CMD make South-Sudan-LF-Progress-Report.html && mv South-Sudan-LF-Progress-Report.html report
